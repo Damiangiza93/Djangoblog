@@ -13,9 +13,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
 
     {% if title %}
-        <title>My Blog - {{ title }}</title>
+        <title>Blog - {{ title }}</title>
     {% else %}
-        <title>My Blog</title>
+        <title>Blog</title>
     {% endif %}
     
 </head>
@@ -30,18 +30,18 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-              <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Strona domowa</a>
+              <a class="nav-item nav-link" href="{% url 'blog-about' %}">O nas</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if user.is_authenticated %}
               <a class="nav-item nav-link" href="{% url 'post-create' %}">Nowy Post</a>
-              <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-              <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>              
+              <a class="nav-item nav-link" href="{% url 'profile' %}">Profil</a>
+              <a class="nav-item nav-link" href="{% url 'logout' %}">Wyloguj się</a>              
               {% else %}
-              <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-              <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+              <a class="nav-item nav-link" href="{% url 'login' %}">Zaloguj się</a>
+              <a class="nav-item nav-link" href="{% url 'register' %}">Rejestracja</a>
               {% endif %}
             </div>
           </div>
@@ -63,13 +63,12 @@
         </div>
         <div class="col-md-4">
           <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.
+            <h3>Sprawdź</h3>
+            <p class='text-muted'>dodaj informacje
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
+                <a class="list-group-item list-group-item-light" href="{% url 'blog-home' %}">Ostatnie posty</a>
+                <li class="list-group-item list-group-item-light">Ogłoszenia</li>
+                <a class="list-group-item list-group-item-light" href="https://www.kalendarzswiat.pl/kalendarz/2020">Kalendarz</a>
               </ul>
             </p>
           </div>
