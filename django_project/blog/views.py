@@ -9,33 +9,22 @@ from django.views.generic import (
     DeleteView)
 from .models import Post
 
-# from django.http import HttpResponse
-# posts =[
-#         {
-#             'author': 'DamianG93',
-#             'title': 'Moj pierwszy post',
-#             'content': 'Tresc mojego pierwszego posta',
-#             'date_posted': '16.09.2020'
-#         },
-# ]
-
-def home(request):
-    context = {
-        # 'posts': posts   
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/home.html', context)
+# def home(request):
+#     context = {
+#         'posts': Post.objects.all()
+#     }
+#     return render(request, 'blog/home.html', context)
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/home.html' # <app(blog)>/<model(post)>_<viewtype(detail)>.html
+    template_name = 'blog/home.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 10
     
 class UserPostListView(ListView):
     model = Post
-    template_name = 'blog/user_posts.html' 
+    template_name = 'blog/user_posts.html'
     context_object_name = 'posts'
     paginate_by = 10
     
